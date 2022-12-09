@@ -10,37 +10,84 @@ class AuthController extends GetxController {
     return auth.authStateChanges();
   }
 
+
+
+
   void signup(String email, String password) async{
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: email,
+      UserCredential MyUser = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+       email: email,
        password: password
      );
-      Get.offAllNamed(Routes.HOME);
+      await MyUser.user!.sendEmailVerification();
+      Get.defaultDialog(
+        title: "Verification Email",
+        middleText: "Kami telah mengirimkan email verifikasi ke $email.",
+        onConfirm: () {
+          Get.back();
+          Get.back();
+        },
+        textConfirm: "Ya, Saya akan cek email"
+      );
       } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
+        Get.defaultDialog(
+        title: "Verification Email",
+        middleText: "The password provided is too weak.");
+
        } else if (e.code == 'email-already-in-use') {
          print('The account already exists for that email.');
+         Get.defaultDialog(
+        title: "Verification Email",
+        middleText: "The account already exists for that email.");
         }
     } catch (e) {
        print(e);
     }
   }
+
+
+
   void login(String email, String password) async {
     try {
-         await auth.signInWithEmailAndPassword(
+          UserCredential MyUser = await auth.signInWithEmailAndPassword(
           email: email,
           password: password
           );
-          Get.offAllNamed(Routes.HOME);
+          if(MyUser.user!.emailVerified){
+              Get.offAllNamed(Routes.HOME);
+          }else{
+            Get.defaultDialog(
+              title: "Verification Email",
+              middleText: "Verifikasi email terlebih dahulu. Apakah belum menrima verivikasi?",
+              onConfirm: () async {
+                await MyUser.user!.sendEmailVerification();
+                Get.back();
+              },
+              textConfirm: "Kirim Ulang",
+              textCancel: "Kembali"
+            );
+          }
+  
           } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
            print('No user found for that email.');
+           Get.defaultDialog(
+              title: "Verification Email",
+              middleText: "No user found for that email"
+            );
           } else if (e.code == 'wrong-password') {
-         print('Wrong password provided for that user.');
+           print('Wrong password provided for that user.');
+           Get.defaultDialog(
+              title: "Verification Email",
+              middleText: "Wrong password provided for that user"
+            );
         }}
     }
+
+
+
   void logout() async {
     await FirebaseAuth.instance.signOut();
     Get.offAllNamed(Routes.LOGIN);

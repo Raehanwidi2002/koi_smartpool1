@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
         title: "Koi SmartPool",
-        initialRoute:Routes.LOGIN,
+        initialRoute:snapshot.data != null && snapshot.data!.emailVerified == true ? Routes.LOGIN:Routes.LOGIN,
         getPages: AppPages.routes,
       );
         }

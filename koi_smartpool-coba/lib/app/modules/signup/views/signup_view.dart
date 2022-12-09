@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/auth_controller.dart';
-import '../../../routes/app_pages.dart';
 import '../controllers/signup_controller.dart';
 
 class SignupView extends GetView<SignupController> {
