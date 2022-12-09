@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:koi_smartpool/app/controllers/auth_controller.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -33,7 +34,16 @@ class LoginView extends GetView<LoginController> {
           SizedBox(height: 50,),
           ElevatedButton(
             onPressed:()=> authC.login(emailC.text, passC.text), 
-            child: Text("Login")
+            child: Text("Masuk")
+          ),
+          SizedBox(height: 50,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Belum punya akun?"),
+              TextButton(onPressed: ()=> Get.toNamed(Routes.SIGNUP), 
+              child: Text("Daftar"))
+            ],
           )
         ],),
       )
