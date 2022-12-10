@@ -16,13 +16,15 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('LoginView'),
-        centerTitle: true,
-      ),
+      
       body:Padding(
         padding: const EdgeInsets.all(25),
         child: Column(children: [
+          Container(
+            width: 350,
+            height: 350,
+            child: Image(image: AssetImage("images/koi.png")),
+          ),
           TextField(
             controller: emailC,
             decoration: InputDecoration(labelText: "Email"),

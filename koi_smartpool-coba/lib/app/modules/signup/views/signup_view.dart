@@ -14,13 +14,14 @@ class SignupView extends GetView<SignupController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SignupView'),
-        centerTitle: true,
-      ),
       body:Padding(
         padding: const EdgeInsets.all(25),
         child: Column(children: [
+           Container(
+            width: 200,
+            height: 200,
+            child: Image(image: AssetImage("images/koi.png")),
+          ),
           TextField(
             controller: emailC,
             decoration: InputDecoration(labelText: "Email"),
