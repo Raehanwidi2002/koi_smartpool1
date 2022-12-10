@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
       builder: (context, snapshot) {
         print(snapshot.data);
         if (snapshot.connectionState == ConnectionState.active){
-
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
         title: "Koi SmartPool",
