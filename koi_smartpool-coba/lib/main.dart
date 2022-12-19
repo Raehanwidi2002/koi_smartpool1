@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:koi_smartpool/app/controllers/auth_controller.dart';
 import 'package:koi_smartpool/app/utils/loading.dart';
@@ -15,6 +15,7 @@ void main() async {
     MyApp()
   );
 }
+
 
 class MyApp extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
         title: "Koi SmartPool",
-        initialRoute:snapshot.data != null && snapshot.data!.emailVerified == true ? Routes.LOGIN:Routes.LOGIN,
+        initialRoute:snapshot.data != null && snapshot.data!.emailVerified == true ? Routes.HOME:Routes.HOME,
         getPages: AppPages.routes,
       );
         }

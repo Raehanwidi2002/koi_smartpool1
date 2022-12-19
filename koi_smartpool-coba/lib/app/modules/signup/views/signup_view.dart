@@ -11,6 +11,7 @@ class SignupView extends StatefulWidget {
 }
 
 class _SignViewState extends State<SignupView>{
+  final namaC = TextEditingController();
   final emailC = TextEditingController();
   final passC = TextEditingController();
   bool _obscureText =true;
@@ -65,13 +66,23 @@ Widget build(BuildContext context) {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              "Login Account",
+                              "SignUp Account",
                               style: TextStyle(
                                   fontSize: 23, fontWeight: FontWeight.w500),
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(
                               height: 22,
+                            ),
+                            SizedBox(
+                                height: 40,
+                                child: Input(
+                                  hint: 'Nama Pengguna',
+                                  icon: Icons.person,
+                                  kontrol: namaC,
+                                )),
+                            SizedBox(
+                              height: 16,
                             ),
                             SizedBox(
                                 height: 40,
@@ -98,8 +109,7 @@ Widget build(BuildContext context) {
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(26),
                                         borderSide: BorderSide(
-                                            color: Color.fromARGB(
-                                                255, 209, 209, 209))),
+                                            color: Color.fromARGB( 255, 209, 209, 209))),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(26),
                                         borderSide:
@@ -117,7 +127,7 @@ Widget build(BuildContext context) {
                             ),
                             MaterialButton(
                               onPressed: () =>
-                                  authC.signup(emailC.text, passC.text),
+                                  authC.signup(namaC.text, emailC.text, passC.text),
                               color: Color.fromARGB(255, 78, 175, 255),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(31)),

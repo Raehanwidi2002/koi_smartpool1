@@ -12,14 +12,30 @@ dependencies:
     sdk: flutter
   firebase_auth: ^4.2.0
   firebase_core: ^2.4.0
+  cloud_firestore: ^4.2.0
+  flutter_native_splash: ^2.2.16
+  
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter
 
+flutter_native_splash:
+  color: "#42a5f5"
+  image: images/koi_400.png
+  android: true
+  ios: true
+  fill: true
+  clip_horizontal: true
+
 flutter: 
   uses-material-design: true
 
   assets:
     - images/koi.png
+    - images/koi_400.png
+    - images/kekeruhan.png
+    - images/kuras.png
+    - images/ph.png
+    - images/temperatur.png

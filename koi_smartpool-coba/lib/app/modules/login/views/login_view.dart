@@ -87,7 +87,7 @@ class _LoginViewState extends State<LoginView> {
                                 height: 40,
                                 child: TextField(
                                   
-                                  controller: passC,
+                                  controller:passC ,
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(10),
                                     isDense: true,
