@@ -2,24 +2,35 @@ name: koi_smartpool
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=2.18.2 <3.0.0'
+environment:
+  sdk: ">=2.18.2 <3.0.0"
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
-  flutter: 
+  flutter:
     sdk: flutter
   firebase_auth: ^4.2.0
   firebase_core: ^2.4.0
   cloud_firestore: ^4.2.0
   flutter_native_splash: ^2.2.16
-  
+  flutter_launcher_icons: ^0.11.0
+  liquid_pull_to_refresh: ^3.0.1
+  percent_indicator: ^4.2.2
+  firebase_database: ^10.0.9
+  flutter_local_notifications: ^14.1.1
+  firebase_app_check: ^0.2.1+8
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^2.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/koi_400.png"
+  adaptive_icon_background: "9ADCFF"
 
 flutter_native_splash:
   color: "#42a5f5"
@@ -29,7 +40,7 @@ flutter_native_splash:
   fill: true
   clip_horizontal: true
 
-flutter: 
+flutter:
   uses-material-design: true
 
   assets:
@@ -39,3 +50,8 @@ flutter:
     - images/kuras.png
     - images/ph.png
     - images/temperatur.png
+
+  fonts:
+    - family: Varela_Round
+      fonts:
+        - asset: fonts/VarelaRound-Regular.ttf

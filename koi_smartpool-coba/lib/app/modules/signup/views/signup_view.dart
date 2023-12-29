@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../controllers/auth_controller.dart';
-import '../controllers/signup_controller.dart';
 
 class SignupView extends StatefulWidget {
   @override
   _SignViewState createState() => _SignViewState();
 }
 
-class _SignViewState extends State<SignupView>{
+class _SignViewState extends State<SignupView> {
   final namaC = TextEditingController();
   final emailC = TextEditingController();
   final passC = TextEditingController();
-  bool _obscureText =true;
+  bool _obscureText = true;
   final authC = Get.find<AuthController>();
- 
+
   @override
-Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 228, 243, 255),
@@ -97,7 +94,6 @@ Widget build(BuildContext context) {
                             SizedBox(
                                 height: 40,
                                 child: TextField(
-                                  
                                   controller: passC,
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(10),
@@ -109,16 +105,21 @@ Widget build(BuildContext context) {
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(26),
                                         borderSide: BorderSide(
-                                            color: Color.fromARGB( 255, 209, 209, 209))),
+                                            color: Color.fromARGB(
+                                                255, 209, 209, 209))),
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(26),
                                         borderSide:
                                             BorderSide(color: Colors.blue)),
-                                    suffixIcon: IconButton(onPressed: (){
-                                      setState((){
-                                        _obscureText = !_obscureText;
-                                      });
-                                    }, icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility)),
+                                    suffixIcon: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            _obscureText = !_obscureText;
+                                          });
+                                        },
+                                        icon: Icon(_obscureText
+                                            ? Icons.visibility_off
+                                            : Icons.visibility)),
                                   ),
                                   obscureText: _obscureText,
                                 )),
@@ -126,8 +127,8 @@ Widget build(BuildContext context) {
                               height: 16,
                             ),
                             MaterialButton(
-                              onPressed: () =>
-                                  authC.signup(namaC.text, emailC.text, passC.text),
+                              onPressed: () => authC.signup(
+                                  namaC.text, emailC.text, passC.text),
                               color: Color.fromARGB(255, 78, 175, 255),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(31)),

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:koi_smartpool/app/controllers/auth_controller.dart';
-
 import '../../../routes/app_pages.dart';
-import '../controllers/login_controller.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -14,7 +11,7 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   final emailC = TextEditingController();
   final passC = TextEditingController();
-  bool _obscureText =true;
+  bool _obscureText = true;
   final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
@@ -86,8 +83,7 @@ class _LoginViewState extends State<LoginView> {
                             SizedBox(
                                 height: 40,
                                 child: TextField(
-                                  
-                                  controller:passC ,
+                                  controller: passC,
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.all(10),
                                     isDense: true,
@@ -104,11 +100,15 @@ class _LoginViewState extends State<LoginView> {
                                         borderRadius: BorderRadius.circular(26),
                                         borderSide:
                                             BorderSide(color: Colors.blue)),
-                                    suffixIcon: IconButton(onPressed: (){
-                                      setState((){
-                                        _obscureText = !_obscureText;
-                                      });
-                                    }, icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility)),
+                                    suffixIcon: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            _obscureText = !_obscureText;
+                                          });
+                                        },
+                                        icon: Icon(_obscureText
+                                            ? Icons.visibility_off
+                                            : Icons.visibility)),
                                   ),
                                   obscureText: _obscureText,
                                 )),

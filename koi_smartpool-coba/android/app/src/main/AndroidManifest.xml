@@ -3,7 +3,11 @@
    <application
         android:label="koi_smartpool"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
+        <meta-data
+         android:name="com.dexterous.flutterlocalnotifications.smallIcon"
+         android:resource="@drawable/ic_notification" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
