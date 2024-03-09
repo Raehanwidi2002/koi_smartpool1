@@ -37,8 +37,7 @@ class AuthController extends GetxController {
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
         Get.defaultDialog(
-            title: "Gagal Mendaftar",
-            middleText: "The account already exists for that email.");
+            title: "Gagal Mendaftar", middleText: "Email sudah terdaftar");
       }
     } catch (e) {
       print(e);
@@ -65,14 +64,12 @@ class AuthController extends GetxController {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        print('Email belum terdaftar');
         Get.defaultDialog(
-            title: "Login Gagal", middleText: "No user found for that email");
+            title: "Login Gagal", middleText: "Email belum terdaftar");
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-        Get.defaultDialog(
-            title: "Login Gagal",
-            middleText: "Wrong password provided for that user");
+        print('Password Salah.');
+        Get.defaultDialog(title: "Login Gagal", middleText: "Password Salah");
       }
     }
   }
